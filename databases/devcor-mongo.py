@@ -27,6 +27,7 @@ mylist = [
   { "name": "William", "address": "Central st 954"},
   { "name": "Chuck", "address": "Main Road 989"},
   { "name": "Viola", "address": "Sideway 1633"}
+]
 
 x = mycol.insert_many(mylist)
 
