@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import pymango
+import pymongo
 
 #setup db connection and creaete a collection called customers
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
