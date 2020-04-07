@@ -99,4 +99,7 @@ print("adding a value to an array within a document")
 for x in mycol.find():
     print(x)
 
+#delete an entire collection
+#mycol.drop()
+
 
