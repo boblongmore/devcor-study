@@ -27,7 +27,7 @@ mylist = [
   { "name": "William", "address": "Central st 954"},
   { "name": "Chuck", "address": "Main Road 989"},
   { "name": "Viola", "address": "Sideway 1633"},
-  { "name": "Bob", "address": ["Oak Grove St"]}
+  { "name": "Bob", "address": ["Oak Grove St","12th Avenue"]}
 ]
 
 x = mycol.insert_many(mylist)
@@ -57,7 +57,7 @@ myquery = { "address": { "$gt": "S" } }
 mydoc = mycol.find(myquery)
 for x in mydoc:
     print("-"*25)
-    print("searchign for all address entries greater than 'S'")
+    print("searching for all address entries greater than 'S'")
     print(x)
 
 #delete a document
@@ -94,9 +94,9 @@ for x in mycol.find():
 myquery = {"name": "Bob"}
 newvalues = { "$push": { "address": "4322 Humboldt Ave" }}
 mycol.update_one(myquery, newvalues)
+print("-"*25)
+print("adding a value to an array within a document")
 for x in mycol.find():
-    print("-"*25)
-    print("adding a value to an array within a document")
     print(x)
 
 
