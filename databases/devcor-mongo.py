@@ -26,7 +26,8 @@ mylist = [
   { "name": "Ben", "address": "Park Lane 38"},
   { "name": "William", "address": "Central st 954"},
   { "name": "Chuck", "address": "Main Road 989"},
-  { "name": "Viola", "address": "Sideway 1633"}
+  { "name": "Viola", "address": "Sideway 1633"},
+  ( "name": "Bob", "address": "Oak Grove St")
 ]
 
 x = mycol.insert_many(mylist)
@@ -85,10 +86,13 @@ for x in mycol.find():
     print(x)
 
 
+# to query by object id, you must import the bson.objectid
+#from bson.objectid import ObjectId
+#myquery = {'_id': ObjectId('5e8b76259e7a6076019c2078')}
+
 #add items to list
-from bson.objectid import ObjectId
-myquery = {'_id': ObjectId('5e8b76259e7a6076019c2078')}
-newvalues = { "$push": { "address": "humboldt" }}
+myquery = {"name": "Bob"}
+newvalues = { "$push": { "address": "4322 Humboldt Ave" }}
 mycol.update_one(myquery, newvalues)
 for x in mycol.find():
     print("-"*25)
