@@ -33,31 +33,31 @@ mylist = [
 x = mycol.insert_many(mylist)
 
 #print entire collection
+print("-"*25)
+print("print entire collection")
 for x in mycol.find():
-    print("-"*25)
-    print("print entire collection")
     print(x)
 
 #search the collection
+print("-"*25)
+print("excluding object id from our search")
 for x in mycol.find({}, { "_id": 0, "name": 1, "address":1 }):
-    print("-"*25)
-    print("excluding object id from our search")
     print(x)
 
 #search for a single entry in collection
 myquery = { "name": "Chuck" }
 mydoc = mycol.find(myquery)
+print("-"*25)
+print("searching for the name 'Chuck'")
 for x in mydoc:
-    print("-"*25)
-    print("searching for the name 'Chuck'")
     print(x)
 
 #create a query
 myquery = { "address": { "$gt": "S" } }
 mydoc = mycol.find(myquery)
+print("-"*25)
+print("searching for all address entries greater than 'S'")
 for x in mydoc:
-    print("-"*25)
-    print("searching for all address entries greater than 'S'")
     print(x)
 
 #delete a document
@@ -70,9 +70,9 @@ print("deleting 'Mountain 21'")
 myquery = { "address": "Valley 345" }
 newvalues = { "$set": { "address" : "Canyon 123" } }
 mycol.update_one(myquery, newvalues)
+print("-"*25)
+print("updating the value 'Valley 345' for 'Canyon 123'") 
 for x in mycol.find():   
-    print("-"*25)
-    print("updating the value 'Valley 345' for 'Canyon 123'") 
     print(x)
 
 #update multiple documents
